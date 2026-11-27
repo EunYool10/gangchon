@@ -56,9 +56,9 @@ h1, h2, h3 { font-family: var(--display); font-weight: 700; }
 /* 목차 + 본문 */
 .layout {
   max-width: 1240px; margin: 0 auto; padding: 40px 28px 0;
-  display: grid; grid-template-columns: 232px minmax(0, 1fr); gap: 48px; align-items: start;
+  display: grid; grid-template-columns: minmax(0, 1fr) 232px; gap: 48px; align-items: start;
 }
-.toc { position: sticky; top: calc(var(--top-h) + 24px); }
+.toc { order: 2; position: sticky; top: calc(var(--top-h) + 24px); }
 .toc-panel {
   display: flex; flex-direction: column;
   max-height: calc(100vh - var(--top-h) - 48px); overflow-y: auto;
@@ -91,24 +91,53 @@ section { padding-top: 72px; }
 h2 { margin: 0 0 22px; font-size: 34px; line-height: 1.25; letter-spacing: -0.02em; }
 
 /* 가볼 곳 */
-.spot { margin-bottom: 20px; padding: 30px 32px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
-.spot h3 { margin: 0 0 12px; font-size: 26px; line-height: 1.3; letter-spacing: -0.01em; }
+.spot { margin-bottom: 20px; padding: 32px 34px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
+.spot h3 { margin: 0 0 8px; font-size: 27px; line-height: 1.3; letter-spacing: -0.01em; }
 .spot p { margin: 0 0 12px; color: var(--ink-2); }
-.spot-photo figure { margin: -30px -32px 26px; }
+.spot .lead { margin: 0 0 22px; font-size: 18.5px; line-height: 1.75; color: var(--ink); }
+.spot h4 { margin: 0 0 6px; font: 700 20px/1.4 var(--display); color: var(--ink); }
+.spot-photo figure { margin: -32px -34px 28px; }
 .spot-photo figure img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: 16px 16px 0 0; }
-.spot-photo figcaption { padding: 0 32px; }
+.spot-photo figcaption { padding: 0 34px; }
 #railpark figure img { object-position: 50% 40%; }
 #deungseon figure img { object-position: 50% 32%; }
 
-.notes { display: grid; grid-template-columns: 116px 1fr; gap: 10px 18px; margin: 18px 0 4px; font-size: 16px; }
-.notes dt { font: 700 15px/1.9 var(--display); color: var(--ink); }
-.notes dd { margin: 0; color: var(--ink-2); }
+/* 한 곳 안의 작은 구역 (구곡폭포 / 문배마을 등) */
+.part { padding-top: 22px; margin-top: 22px; border-top: 1px dashed var(--line); }
+.lead + .part { margin-top: 0; padding-top: 0; border-top: 0; }
 
-.meta { list-style: none; margin: 18px 0 0; padding: 14px 18px; border-radius: 10px; background: var(--inset); font-size: 14.5px; line-height: 1.7; color: var(--ink-2); }
-.meta li { padding: 3px 0; }
-.meta b { display: inline-block; min-width: 82px; margin-right: 8px; font: 700 14px/1.7 var(--display); color: var(--ink); }
+/* 이용 정보: 이름표와 값을 칸으로 */
+.facts {
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px;
+  margin: 16px 0 4px; padding: 4px 20px; border-radius: 12px; background: var(--inset);
+}
+.facts div { padding: 12px 0; border-top: 1px solid var(--line); }
+.facts div:first-child,
+.facts div:first-child:not(.wide) + div:not(.wide) { border-top: 0; }
+.facts .wide { grid-column: 1 / -1; }
+.facts dt { font: 700 14.5px/1.4 var(--display); color: var(--accent); }
+.facts dd { margin: 3px 0 0; font-size: 15.5px; line-height: 1.6; color: var(--ink); }
+.facts dd small { display: block; margin-top: 2px; font-size: 13.5px; line-height: 1.55; color: var(--muted); }
 
-.checked { margin: 8px 0 0; font-size: 14px; color: var(--muted); }
+/* 옛 강촌역 볼거리 */
+.highlights { list-style: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0 0 8px; padding: 0; }
+.highlights li { padding: 16px 18px; border: 1px solid var(--line); border-radius: 12px; }
+.highlights h4 { margin-bottom: 4px; font-size: 18px; }
+.highlights p { margin: 0; font-size: 15px; line-height: 1.75; }
+
+/* 레일바이크 코스 */
+.course { list-style: none; display: flex; align-items: stretch; margin: 0 0 18px; padding: 0; }
+.course .stop {
+  flex: none; display: flex; flex-direction: column; justify-content: center;
+  padding: 10px 14px; border: 1px solid var(--line); border-radius: 10px; background: var(--paper); text-align: center;
+}
+.course .stop b { font: 700 16px/1.35 var(--display); }
+.course .stop span { font-size: 12.5px; line-height: 1.4; color: var(--muted); }
+.course .leg { flex: 1; min-width: 72px; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0 8px; }
+.course .leg::after { content: ""; width: 100%; border-top: 2px dashed #b4471f; margin-top: 4px; }
+.course .leg span { font-size: 13px; line-height: 1.3; color: #b4471f; white-space: nowrap; }
+
+.checked { margin: -6px 0 18px; font-size: 14px; color: var(--muted); }
 
 /* 지도 */
 .map-card { padding: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 16px; }
@@ -190,7 +219,7 @@ dialog::backdrop { background: rgba(28, 26, 22, .5); }
 @media (max-width: 960px) {
   .toc-btn { display: block; }
   .layout { grid-template-columns: minmax(0, 1fr); gap: 0; padding-top: 28px; }
-  .toc { display: none; position: fixed; z-index: 1001; top: calc(var(--top-h) + 8px); left: 16px; right: 16px; }
+  .toc { display: none; position: fixed; z-index: 1001; top: calc(var(--top-h) + 8px); right: 16px; width: min(320px, calc(100vw - 32px)); }
   .toc-open .toc { display: block; }
   .toc-panel { max-height: min(70vh, 560px); box-shadow: 0 10px 28px rgba(28, 26, 22, .18); }
   .content { max-width: none; }
@@ -203,16 +232,19 @@ dialog::backdrop { background: rgba(28, 26, 22, .5); }
   .hero-photo { max-width: none; }
   section { padding-top: 56px; }
   h2 { font-size: 28px; }
-  .spot { padding: 22px 18px; border-radius: 14px; }
-  .spot-photo figure { margin: -22px -18px 20px; }
+  .spot { padding: 24px 18px; border-radius: 14px; }
+  .spot-photo figure { margin: -24px -18px 20px; }
   .spot-photo figure img { aspect-ratio: 16 / 10; border-radius: 14px 14px 0 0; }
   .spot-photo figcaption { padding: 0 18px; }
   .spot h3 { font-size: 23px; }
-  .notes { grid-template-columns: 1fr; gap: 0; }
-  .notes dd { margin-bottom: 10px; }
-  .meta { padding: 12px 14px; }
-  .meta b { display: block; min-width: 0; }
-  .meta li { padding: 5px 0; }
+  .spot .lead { font-size: 17px; margin-bottom: 18px; }
+  .facts { grid-template-columns: minmax(0, 1fr); padding: 2px 16px; }
+  .facts div:first-child:not(.wide) + div:not(.wide) { border-top: 1px solid var(--line); }
+  .highlights { grid-template-columns: minmax(0, 1fr); }
+  .course { flex-direction: column; align-items: stretch; }
+  .course .stop { flex-direction: row; justify-content: space-between; align-items: baseline; text-align: left; }
+  .course .leg { flex-direction: row; justify-content: flex-start; min-width: 0; min-height: 40px; padding: 0 0 0 18px; border-left: 2px dashed #b4471f; margin-left: 18px; }
+  .course .leg::after { display: none; }
   .map { height: 420px; }
   .route-grid, .story-grid { padding: 18px; }
   .plain { grid-template-columns: 96px 1fr; }

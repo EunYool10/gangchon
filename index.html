@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://hangeul.pstatic.net" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -23,7 +23,6 @@
     <a class="brand" href="#intro">강촌<span>江村</span></a>
     <div class="top-btns">
       <button type="button" class="top-btn toc-btn" aria-controls="toc" aria-expanded="false">목차</button>
-      <button type="button" class="top-btn" data-open-credits>출처</button>
     </div>
   </div>
 </header>
@@ -68,32 +67,49 @@
     <section id="places" class="places">
       <h2>가볼 곳</h2>
 
+      <p class="checked">요금과 시간은 2026년 11월 27일에 확인한 내용입니다. 바뀔 수 있으니 가기 전에 한 번 더 확인하세요.</p>
+
       <article class="spot" id="gugok">
         <h3>구곡폭포와 문배마을</h3>
-        <p>봉화산 기슭의 구곡폭포는 높이 약 50m로, 아홉 굽이를 돌아 떨어진다고 해서 이런 이름이 붙었습니다. 구구리폭포라고도 부릅니다. 큰비가 내린 뒤에 물줄기가 가장 웅장하고, 가을에는 폭포 주변에 단풍이 들고, 겨울에는 폭포가 얼어붙어 빙벽을 타는 사람들이 찾아옵니다.</p>
-        <p>폭포 입구에서 능선길로 40분쯤 더 오르면 산 위 분지에 자리한 문배마을이 나옵니다. 옛 화전민 마을로, 생김새가 짐을 가득 실은 배를 닮아 문배마을이라 불렸다고 합니다. 마을 식당에서는 산채비빔밥과 토종닭 요리를 팝니다.</p>
-        <ul class="meta">
-          <li><b>구곡폭포</b>남산면 강촌구곡길 254 · 입장료 2,000원 (65세 이상, 6세 이하, 장애인, 국가유공자 등 면제) · 주차 약 200대 · <a href="tel:0332610088">033-261-0088</a></li>
-          <li><b>문배마을</b>남산면 강촌문배길 · 구곡폭포 입구에서 걸어서 40분 안팎</li>
-        </ul>
+        <p class="lead">아홉 굽이를 돌아 떨어지는 높이 약 50m의 폭포와, 그 위 산속 분지에 자리한 마을입니다.</p>
+
+        <div class="part">
+          <h4>구곡폭포</h4>
+          <p>봉화산 기슭의 폭포로, 아홉 굽이를 돌아 떨어진다고 해서 구곡폭포라 하고 구구리폭포라고도 부릅니다. 큰비가 내린 뒤에 물줄기가 가장 웅장하고, 가을에는 폭포 주변에 단풍이 들며, 겨울에는 폭포가 얼어붙어 빙벽을 타는 사람들이 찾아옵니다.</p>
+          <dl class="facts">
+            <div><dt>주소</dt><dd>남산면 강촌구곡길 254</dd></div>
+            <div><dt>입장료</dt><dd>2,000원<small>65세 이상, 6세 이하, 장애인, 국가유공자 등 면제</small></dd></div>
+            <div><dt>주차</dt><dd>약 200대</dd></div>
+            <div><dt>문의</dt><dd><a href="tel:0332610088">033-261-0088</a></dd></div>
+            <div class="wide"><dt>가는 길</dt><dd>강촌역에서 걸어서 약 1시간</dd></div>
+          </dl>
+        </div>
+
+        <div class="part">
+          <h4>문배마을</h4>
+          <p>폭포 입구에서 능선길로 40분쯤 오르면 나오는 옛 화전민 마을입니다. 생김새가 짐을 가득 실은 배를 닮아 문배마을이라 불렸다고 하며, 마을 식당에서 산채비빔밥과 토종닭 요리를 팝니다.</p>
+          <dl class="facts">
+            <div><dt>주소</dt><dd>남산면 강촌문배길</dd></div>
+            <div><dt>가는 길</dt><dd>구곡폭포 입구에서 걸어서 40분 안팎</dd></div>
+          </dl>
+        </div>
       </article>
 
       <article class="spot" id="oldstation">
         <h3>옛 강촌역 일대</h3>
-        <p>2010년까지 기차가 서던 옛 강촌역 앞은 강촌유원지입니다. 북한강을 따라 산책로가 길게 이어집니다.</p>
-        <dl class="notes">
-          <dt>출렁다리</dt>
-          <dd>1972년에 처음 놓인 출렁다리(길이 277m)는 1981년 새 강촌교가 생기고 안전 문제가 불거지면서 1985년에 철거됐습니다. 지금의 다리는 2016년 9월 강촌천 위에 길이 58m로 다시 놓은 것입니다.</dd>
-          <dt>노래비</dt>
-          <dd>‘강촌에 살고 싶네’ 노래비는 2005년에 세워졌고, 버튼을 누르면 노래가 흘러나옵니다.</dd>
-          <dt>물깨말 정원</dt>
-          <dd>2026년 8월 출렁다리 옆에 문을 연 약 2,000㎡ 정원입니다. 기찻길 산책로와 암석원이 있습니다.</dd>
-          <dt>북한강 물새길</dt>
-          <dd>춘천 봄내길 5코스. 옛 강촌역에서 백양리역까지 2.1km, 한 시간쯤 걷는 쉬운 길입니다.</dd>
-        </dl>
-        <ul class="meta">
-          <li><b>강촌유원지</b>남산면 강촌로 34 · 입장료 없음 · <a href="tel:0332624464">033-262-4464</a></li>
+        <p class="lead">2010년까지 기차가 서던 강가의 옛 역 앞, 강촌유원지입니다. 북한강을 따라 산책로가 길게 이어집니다.</p>
+        <ul class="highlights">
+          <li><h4>출렁다리</h4><p>1972년에 처음 놓인 길이 277m의 출렁다리는 1981년 새 강촌교가 생기고 안전 문제가 불거져 1985년에 철거됐습니다. 2016년 9월 강촌천 위에 길이 58m로 다시 놓였습니다.</p></li>
+          <li><h4>노래비</h4><p>‘강촌에 살고 싶네’ 노래비는 2005년에 세워졌고, 버튼을 누르면 노래가 흘러나옵니다.</p></li>
+          <li><h4>물깨말 정원</h4><p>2026년 8월 출렁다리 옆에 문을 연 약 2,000㎡ 정원입니다. 기찻길 산책로와 암석원이 있습니다.</p></li>
+          <li><h4>북한강 물새길</h4><p>춘천 봄내길 5코스. 옛 강촌역에서 백양리역까지 2.1km, 한 시간쯤 걷는 쉬운 길입니다.</p></li>
         </ul>
+        <dl class="facts">
+          <div><dt>주소</dt><dd>남산면 강촌로 34 (강촌유원지)</dd></div>
+          <div><dt>입장료</dt><dd>없음</dd></div>
+          <div><dt>가는 길</dt><dd>강촌역에서 600m쯤</dd></div>
+          <div><dt>문의</dt><dd><a href="tel:0332624464">033-262-4464</a></dd></div>
+        </dl>
       </article>
 
       <article class="spot spot-photo" id="railpark">
@@ -101,16 +117,23 @@
           <img src="images/railpark-train.jpg" width="1280" height="854" loading="lazy" alt="GANGCHON RAIL PARK라고 적힌 빨간 낭만열차에 사람들이 타는 모습">
           <figcaption>레일바이크 끝 구간을 잇는 낭만열차 (2025년 11월)</figcaption>
         </figure>
-        <div class="spot-text">
-          <h3>강촌레일파크</h3>
-          <p>옛 경춘선 철길 위를 페달을 밟아 달립니다. 김유정역 탑승장에서 출발해 중간휴게소까지 6km는 레일바이크로, 남은 2.5km는 낭만열차를 타고 옛 강촌역까지 내려옵니다. 편도라서 김유정역까지는 무료 셔틀버스로 돌아갑니다. 2012년 8월에 운행을 시작했습니다.</p>
-          <ul class="meta">
-            <li><b>출발</b>09:00부터 17:30까지 하루 9회, 5~10월 주말과 공휴일은 18:30 추가</li>
-            <li><b>요금</b>2인승 40,000원, 4인승 56,000원</li>
-            <li><b>예약</b>당일 예약은 안 되고 현장 구매는 선착순 · <a href="tel:0332451000">033-245-1000</a> · <a href="https://www.railpark.co.kr/" target="_blank" rel="noopener">railpark.co.kr</a></li>
-            <li><b>탑승장</b>신동면 김유정로 1383 (김유정역)</li>
-          </ul>
-        </div>
+        <h3>강촌레일파크</h3>
+        <p class="lead">옛 경춘선 철길 위를 레일바이크와 낭만열차로 달려 옛 강촌역까지 내려옵니다.</p>
+        <ol class="course" aria-label="코스">
+          <li class="stop"><b>김유정역 탑승장</b><span>출발</span></li>
+          <li class="leg"><span>레일바이크 6km</span></li>
+          <li class="stop"><b>중간휴게소</b><span>갈아타기</span></li>
+          <li class="leg"><span>낭만열차 2.5km</span></li>
+          <li class="stop"><b>옛 강촌역</b><span>도착</span></li>
+        </ol>
+        <p>편도 코스라서 김유정역까지는 무료 셔틀버스로 돌아갑니다. 2012년 8월에 운행을 시작했습니다.</p>
+        <dl class="facts">
+          <div class="wide"><dt>출발 시각</dt><dd>09:00 · 10:00 · 11:00 · 12:00 · 13:30 · 14:30 · 15:30 · 16:30 · 17:30<small>5~10월 주말과 공휴일은 18:30 추가</small></dd></div>
+          <div><dt>요금</dt><dd>2인승 40,000원<br>4인승 56,000원</dd></div>
+          <div><dt>예약</dt><dd>누리집에서 미리 예약<small>당일 예약은 안 되고, 현장 구매는 선착순</small></dd></div>
+          <div><dt>탑승장</dt><dd>신동면 김유정로 1383 (김유정역)</dd></div>
+          <div><dt>문의</dt><dd><a href="tel:0332451000">033-245-1000</a> · <a href="https://www.railpark.co.kr/" target="_blank" rel="noopener">railpark.co.kr</a></dd></div>
+        </dl>
       </article>
 
       <article class="spot spot-photo" id="deungseon">
@@ -118,25 +141,40 @@
           <img src="images/samaksan.jpg" width="1280" height="960" loading="lazy" alt="소나무가 자라는 삼악산의 바위 봉우리">
           <figcaption>삼악산 정상부 (2023년 12월)</figcaption>
         </figure>
-        <div class="spot-text">
-          <h3>등선폭포와 삼악산</h3>
-          <p>강촌유원지에서 동쪽으로 2km쯤 가면 등선폭포가 있습니다. 주변의 승학폭포, 백련폭포, 비룡폭포 등과 함께 ‘등선 8경’을 이루고, 이쪽에서 삼악산으로 오르는 길이 이어집니다.</p>
-          <p>삼악산은 용화봉(654m), 등선봉(632m), 청운봉(546m) 세 봉우리가 있어 붙은 이름이고, 1973년 강원도 기념물로 지정됐습니다.</p>
-          <ul class="meta">
-            <li><b>등선폭포</b>서면 덕두원리 118-2 · 입장료 2,000원 (입장하면 춘천사랑상품권 2,000원 제공, 춘천시민·경로·장애인·국가유공자 등 면제) · <a href="tel:0332622215">033-262-2215</a></li>
-          </ul>
+        <h3>등선폭포와 삼악산</h3>
+        <p class="lead">강촌유원지에서 동쪽으로 2km쯤, 등선폭포를 지나 삼악산으로 오르는 길이 이어집니다.</p>
+
+        <div class="part">
+          <h4>등선폭포</h4>
+          <p>주변의 승학폭포, 백련폭포, 비룡폭포 등과 함께 ‘등선 8경’을 이룹니다.</p>
+          <dl class="facts">
+            <div><dt>주소</dt><dd>서면 덕두원리 118-2</dd></div>
+            <div><dt>문의</dt><dd><a href="tel:0332622215">033-262-2215</a></dd></div>
+            <div class="wide"><dt>입장료</dt><dd>2,000원<small>입장하면 춘천사랑상품권 2,000원 제공 · 춘천시민, 경로, 장애인, 국가유공자 등 면제</small></dd></div>
+          </dl>
+        </div>
+
+        <div class="part">
+          <h4>삼악산</h4>
+          <p>용화봉(654m), 등선봉(632m), 청운봉(546m) 세 봉우리가 있어 삼악산이라 부르고, 1973년 강원도 기념물로 지정됐습니다.</p>
+          <dl class="facts">
+            <div><dt>높이</dt><dd>654m (용화봉)</dd></div>
+            <div><dt>위치</dt><dd>춘천시 서면</dd></div>
+          </dl>
         </div>
       </article>
 
       <article class="spot" id="elysian">
         <h3>엘리시안 강촌</h3>
-        <p>북한강변길에 있는 리조트로 스키장과 골프장(강촌 컨트리클럽), 콘도, 수영장, 캠핑장이 있습니다. 서울에서 가까운 스키장으로 알려져 있고, 지난 2025~26 시즌에는 12월 6일에 슬로프를 열었습니다. 올겨울 개장일은 리조트 공지를 확인하세요.</p>
-        <ul class="meta">
-          <li><b>엘리시안 강촌</b>남산면 북한강변길 688 · 가까운 역 백양리역 · <a href="tel:0332602000">033-260-2000</a> · <a href="https://www.elysian.co.kr/" target="_blank" rel="noopener">elysian.co.kr</a></li>
-        </ul>
+        <p class="lead">북한강변길의 리조트로, 서울에서 가까운 스키장으로 알려져 있습니다.</p>
+        <p>스키장과 골프장(강촌 컨트리클럽), 콘도, 수영장, 캠핑장이 있습니다. 지난 2025~26 시즌에는 2025년 12월 6일에 스키장을 열었습니다.</p>
+        <dl class="facts">
+          <div><dt>주소</dt><dd>남산면 북한강변길 688</dd></div>
+          <div><dt>가까운 역</dt><dd>경춘선 백양리역</dd></div>
+          <div><dt>문의</dt><dd><a href="tel:0332602000">033-260-2000</a> · <a href="https://www.elysian.co.kr/" target="_blank" rel="noopener">elysian.co.kr</a></dd></div>
+          <div><dt>올겨울 개장</dt><dd>리조트 공지에서 확인</dd></div>
+        </dl>
       </article>
-
-      <p class="checked">요금과 시간은 2026년 11월 27일에 확인했습니다. 바뀔 수 있으니 가기 전에 한 번 더 확인하세요.</p>
     </section>
 
     <section id="map" class="map-section">
@@ -295,6 +333,6 @@
 </dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="main.js?v=7"></script>
+<script src="main.js?v=9"></script>
 </body>
 </html>
