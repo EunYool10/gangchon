@@ -3,204 +3,343 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>강촌 여행 안내</title>
+<title>강촌</title>
 <meta name="description" content="북한강 물가 마을 강촌(춘천시 남산면). 구곡폭포와 문배마을, 옛 강촌역 일대, 강촌레일파크, 등선폭포와 삼악산, 엘리시안 강촌.">
 <meta property="og:type" content="website">
-<meta property="og:title" content="강촌 여행 안내">
+<meta property="og:title" content="강촌">
 <meta property="og:description" content="북한강 물가 마을 강촌. 구곡폭포, 문배마을, 레일바이크, 삼악산.">
 <meta property="og:image" content="https://eunyool10.github.io/gangchon/images/gangchon-station.jpg">
 <meta property="og:url" content="https://eunyool10.github.io/gangchon/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231a5e7e'/%3E%3Cpath d='M4 20c4-3 8-3 12 0s8 3 12 0' stroke='%23fff' stroke-width='2.4' fill='none'/%3E%3Cpath d='M4 25c4-3 8-3 12 0s8 3 12 0' stroke='%23fff' stroke-width='2.4' fill='none' opacity='.6'/%3E%3Cpath d='M7 15l6-8 4 5 3-3 5 6' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f5c4f'/%3E%3Cpath d='M4 20c4-3 8-3 12 0s8 3 12 0' stroke='%23fff' stroke-width='2.4' fill='none'/%3E%3Cpath d='M4 25c4-3 8-3 12 0s8 3 12 0' stroke='%23fff' stroke-width='2.4' fill='none' opacity='.6'/%3E%3Cpath d='M7 15l6-8 4 5 3-3 5 6' stroke='%23fff' stroke-width='2.4' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=5">
+<script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap top-in">
-    <a class="brand" href="#">강촌</a>
-    <nav class="nav" aria-label="페이지 안 이동">
-      <a href="#intro">소개</a>
-      <a href="#places">가볼 곳</a>
-      <a href="#map">지도</a>
-      <a href="#route">오는 길</a>
-      <a href="#story">지나온 길</a>
-      <button type="button" class="nav-credits" data-open-credits>출처</button>
-    </nav>
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/></symbol>
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M4 11l8-7 8 7"/><path d="M6 9.5V20h12V9.5"/></symbol>
+  <symbol id="i-map" viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z"/><path d="M9 4v14M15 6v14"/></symbol>
+  <symbol id="i-sign" viewBox="0 0 24 24"><path d="M4.5 11.5L19.5 4.5l-7 15-2-6z"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 5a2 2 0 012-2h11v15H7a2 2 0 00-2 2z"/><path d="M5 20a2 2 0 002 2h11v-4"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0113 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.2"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24"><path d="M3.5 7h17v3a2 2 0 000 4v3h-17v-3a2 2 0 000-4z"/><path d="M14 8v1.5M14 11.25v1.5M14 14.5V16"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.5 3.5h3l1.8 4.5-2.1 1.4a11 11 0 005.4 5.4l1.4-2.1 4.5 1.8v3a2 2 0 01-2 2A15.5 15.5 0 014.5 5.5a2 2 0 012-2z"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24"><path d="M3.5 16.5v-4l2-5h13l2 5v4z"/><circle cx="7.5" cy="16.5" r="1.6"/><circle cx="16.5" cy="16.5" r="1.6"/></symbol>
+  <symbol id="i-train" viewBox="0 0 24 24"><rect x="6" y="3" width="12" height="13" rx="2.5"/><path d="M6 10h12M9 16l-2 4.5M15 16l2 4.5"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 005.7 0l3-3a4 4 0 00-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 00-5.7 0l-3 3a4 4 0 005.7 5.7l1-1"/></symbol>
+  <symbol id="i-park" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M10 16.5v-9h3a2.5 2.5 0 010 5h-3"/></symbol>
+  <symbol id="i-mount" viewBox="0 0 24 24"><path d="M3 19l6.5-11 4 6.5 2-3L21 19z"/></symbol>
+  <symbol id="i-cal" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></symbol>
+  <symbol id="i-walk" viewBox="0 0 24 24"><circle cx="6" cy="18" r="2"/><circle cx="18" cy="6" r="2"/><path d="M8 18h6.5a3 3 0 000-6h-5a3 3 0 010-6H16"/></symbol>
+  <symbol id="i-text" viewBox="0 0 24 24"><path d="M5 6h14M5 11h14M5 16h9"/></symbol>
+  <symbol id="i-out" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4l-9 9"/><path d="M18 14v5H5V6h5"/></symbol>
+</svg>
+
+<div class="app">
+
+<aside class="side" id="side" aria-label="카테고리">
+  <div class="side-head">
+    <span class="ws-icon" aria-hidden="true"></span>
+    <span class="ws-name">강촌<small>춘천시 남산면</small></span>
+    <button type="button" class="side-close" data-side-close aria-label="메뉴 닫기"><svg><use href="#i-close"/></svg></button>
   </div>
-</header>
+  <nav class="side-nav tree">
+    <p class="tree-label">페이지</p>
+    <div class="row"><span class="caret-gap"></span><a class="side-item" href="#intro" data-nav="intro"><svg><use href="#i-home"/></svg><span>소개</span></a></div>
 
-<main>
+    <div class="row"><button type="button" class="caret" aria-expanded="true" aria-controls="sub-places" aria-label="가볼 곳 하위 페이지 접기"><svg><use href="#i-chev"/></svg></button><a class="side-item" href="#places" data-nav="places"><svg><use href="#i-pin"/></svg><span>가볼 곳</span></a></div>
+    <div class="sub" id="sub-places">
+      <div class="row"><span class="caret-gap"></span><a class="side-item" href="#gugok" data-nav="gugok"><svg><use href="#i-doc"/></svg><span>구곡폭포와 문배마을</span></a></div>
+      <div class="row"><span class="caret-gap"></span><a class="side-item" href="#oldstation" data-nav="oldstation"><svg><use href="#i-doc"/></svg><span>옛 강촌역 일대</span></a></div>
+      <div class="row"><span class="caret-gap"></span><a class="side-item" href="#railpark" data-nav="railpark"><svg><use href="#i-doc"/></svg><span>강촌레일파크</span></a></div>
+      <div class="row"><span class="caret-gap"></span><a class="side-item" href="#deungseon" data-nav="deungseon"><svg><use href="#i-doc"/></svg><span>등선폭포와 삼악산</span></a></div>
+      <div class="row"><span class="caret-gap"></span><a class="side-item" href="#elysian" data-nav="elysian"><svg><use href="#i-doc"/></svg><span>엘리시안 강촌</span></a></div>
+    </div>
 
-<figure class="cover">
-  <img src="images/old-station-1984.jpg" width="1280" height="1591" alt="1984년, 바위산 아래 북한강 변 옛 강촌역 앞을 지나는 비둘기호 열차와 강 위의 다리">
-  <figcaption class="wrap">1984년 6월, 옛 강촌역 앞을 지나는 비둘기호 열차</figcaption>
-</figure>
+    <div class="row"><button type="button" class="caret" aria-expanded="true" aria-controls="sub-info" aria-label="여행 정보 하위 페이지 접기"><svg><use href="#i-chev"/></svg></button><a class="side-item" href="#info" data-nav="info"><svg><use href="#i-book"/></svg><span>여행 정보</span></a></div>
+    <div class="sub" id="sub-info">
+      <div class="row"><span class="caret-gap"></span><a class="side-item" href="#map" data-nav="map"><svg><use href="#i-map"/></svg><span>지도</span></a></div>
+      <div class="row"><span class="caret-gap"></span><a class="side-item" href="#route" data-nav="route"><svg><use href="#i-sign"/></svg><span>오는 길</span></a></div>
+      <div class="row"><span class="caret-gap"></span><a class="side-item" href="#story" data-nav="story"><svg><use href="#i-clock"/></svg><span>지나온 길</span></a></div>
+    </div>
+  </nav>
+  <div class="side-foot">
+    <button type="button" class="side-item" data-open-credits><svg><use href="#i-book"/></svg><span>출처와 사용한 자료</span></button>
+  </div>
+</aside>
+<div class="scrim" data-side-close></div>
 
-<section id="intro" class="intro">
-  <div class="wrap intro-grid">
-    <h1>강촌<small>江村 · 춘천시 남산면</small></h1>
-    <div class="intro-text">
+<div class="main">
+  <header class="bar">
+    <button type="button" class="menu-btn" data-side-open aria-label="카테고리 열기" aria-controls="side"><svg><use href="#i-menu"/></svg></button>
+    <nav class="crumbs" aria-label="현재 위치" id="crumbs"><a href="#intro">강촌</a></nav>
+    <button type="button" class="bar-btn" data-open-credits>출처</button>
+  </header>
+
+  <main id="content">
+
+  <!-- 소개 -->
+  <article class="page" id="page-intro" data-page="intro" data-title="소개">
+    <div class="cover"><img src="images/gangchon-winter-2008.jpg" width="1280" height="960" alt="눈 덮인 강변과 산 사이로 지나가는 붉은 철교" style="object-position:50% 72%"></div>
+    <div class="doc">
+      <h1 tabindex="-1">강촌</h1>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-pin"/></svg>위치</span><span class="v">강원특별자치도 춘천시 남산면 강촌리 일대</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-text"/></svg>옛 이름</span><span class="v">물깨말, 물가에 있는 마을</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-train"/></svg>기차</span><span class="v">수도권 전철 경춘선 강촌역</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-car"/></svg>자동차</span><span class="v">서울양양고속도로 강촌IC</span></div>
+      </div>
       <p>강촌의 옛 이름은 ‘물깨말’, 물가에 있는 마을이라는 뜻입니다. 이름처럼 북한강이 마을을 감싸고 흐르고, 강 건너에는 삼악산이 솟아 있습니다.</p>
       <p>1939년 경춘선 강촌역이 생긴 뒤로 강촌은 기차를 타고 찾아오는 곳이 되었습니다. 1970~80년대에는 대학생들의 MT 명소였고, 나훈아의 ‘강촌에 살고 싶네’(1969)도 이곳을 노래했습니다.</p>
       <p>2010년 복선전철이 놓이면서 강가의 옛 역은 600m쯤 떨어진 새 역으로 옮겨 갔습니다. 대신 옛 철길 위로는 지금 레일바이크가 달립니다.</p>
+
+      <h2><a class="h-link" href="#places">가볼 곳</a></h2>
+      <ul class="links">
+        <li><a href="#gugok"><svg><use href="#i-doc"/></svg><span>구곡폭포와 문배마을</span></a><em>높이 약 50m의 폭포와 산 위 분지 마을</em></li>
+        <li><a href="#oldstation"><svg><use href="#i-doc"/></svg><span>옛 강촌역 일대</span></a><em>강촌유원지, 출렁다리, 노래비, 물깨말 정원</em></li>
+        <li><a href="#railpark"><svg><use href="#i-doc"/></svg><span>강촌레일파크</span></a><em>옛 경춘선 철길을 달리는 레일바이크</em></li>
+        <li><a href="#deungseon"><svg><use href="#i-doc"/></svg><span>등선폭포와 삼악산</span></a><em>등선 8경과 세 봉우리의 산</em></li>
+        <li><a href="#elysian"><svg><use href="#i-doc"/></svg><span>엘리시안 강촌</span></a><em>스키장과 골프장이 있는 리조트</em></li>
+      </ul>
+
+      <h2><a class="h-link" href="#info">여행 정보</a></h2>
+      <ul class="links">
+        <li><a href="#map"><svg><use href="#i-map"/></svg><span>지도</span></a><em>가볼 곳과 역 위치, 레일바이크 철길</em></li>
+        <li><a href="#route"><svg><use href="#i-sign"/></svg><span>오는 길</span></a><em>기차, 자동차, 역에서 가는 법</em></li>
+        <li><a href="#story"><svg><use href="#i-clock"/></svg><span>지나온 길</span></a><em>1939년부터 지금까지</em></li>
+      </ul>
     </div>
-  </div>
-</section>
+  </article>
 
-<section id="places" class="places">
-  <div class="wrap">
-    <h2>가볼 곳</h2>
-
-    <article class="spot">
-      <div class="spot-text">
-        <h3>구곡폭포와 문배마을</h3>
-        <p>봉화산 기슭의 구곡폭포는 높이 약 50m로, 아홉 굽이를 돌아 떨어진다고 해서 이런 이름이 붙었습니다. 구구리폭포라고도 부릅니다. 큰비가 내린 뒤에 물줄기가 가장 웅장하고, 가을에는 폭포 주변에 단풍이 들고, 겨울에는 폭포가 얼어붙어 빙벽을 타는 사람들이 찾아옵니다.</p>
-        <p>폭포 입구에서 능선길로 40분쯤 더 오르면 산 위 분지에 자리한 문배마을이 나옵니다. 옛 화전민 마을로, 생김새가 짐을 가득 실은 배를 닮아 문배마을이라 불렸다고 합니다. 마을 식당에서는 산채비빔밥과 토종닭 요리를 팝니다.</p>
-        <ul class="meta">
-          <li><b>구곡폭포</b>남산면 강촌구곡길 254 · 입장료 2,000원 (65세 이상, 6세 이하, 장애인, 국가유공자 등 면제) · 주차 약 200대 · <a href="tel:0332610088">033-261-0088</a></li>
-          <li><b>문배마을</b>남산면 강촌문배길 · 구곡폭포 입구에서 걸어서 40분 안팎</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-text">
-        <h3>옛 강촌역 일대</h3>
-        <p>2010년까지 기차가 서던 옛 강촌역 앞은 강촌유원지입니다. 북한강을 따라 산책로가 길게 이어집니다.</p>
-        <dl class="notes">
-          <dt>출렁다리</dt>
-          <dd>1972년에 처음 놓인 출렁다리(길이 277m)는 1981년 새 강촌교가 생기고 안전 문제가 불거지면서 1985년에 철거됐습니다. 지금의 다리는 2016년 9월 강촌천 위에 길이 58m로 다시 놓은 것입니다.</dd>
-          <dt>노래비</dt>
-          <dd>‘강촌에 살고 싶네’ 노래비는 버튼을 누르면 노래가 흘러나옵니다.</dd>
-          <dt>물깨말 정원</dt>
-          <dd>2026년 8월 출렁다리 옆에 문을 연 약 2,000㎡ 정원입니다. 기찻길 산책로와 암석원이 있습니다.</dd>
-          <dt>북한강 물새길</dt>
-          <dd>춘천 봄내길 5코스. 옛 강촌역에서 백양리역까지 2.1km, 한 시간쯤 걷는 쉬운 길입니다.</dd>
-        </dl>
-        <ul class="meta">
-          <li><b>강촌유원지</b>남산면 강촌로 34 · 입장료 없음 · <a href="tel:0332624464">033-262-4464</a></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="spot spot-photo">
-      <figure>
-        <img src="images/railpark-train.jpg" width="1280" height="854" loading="lazy" alt="GANGCHON RAIL PARK라고 적힌 빨간 낭만열차에 사람들이 타는 모습">
-        <figcaption>레일바이크 끝 구간을 잇는 낭만열차 (2025년 11월)</figcaption>
-      </figure>
-      <div class="spot-text">
-        <h3>강촌레일파크</h3>
-        <p>옛 경춘선 철길 위를 페달을 밟아 달립니다. 김유정역 탑승장에서 출발해 중간휴게소까지 6km는 레일바이크로, 남은 2.5km는 낭만열차를 타고 옛 강촌역까지 내려옵니다. 편도라서 김유정역까지는 무료 셔틀버스로 돌아갑니다. 2012년 8월에 운행을 시작했습니다.</p>
-        <ul class="meta">
-          <li><b>출발</b>09:00부터 17:30까지 하루 9회, 5~10월 주말과 공휴일은 18:30 추가</li>
-          <li><b>요금</b>2인승 40,000원, 4인승 56,000원</li>
-          <li><b>예약</b>당일 예약은 안 되고 현장 구매는 선착순 · <a href="tel:0332451000">033-245-1000</a> · <a href="https://www.railpark.co.kr/" target="_blank" rel="noopener">railpark.co.kr</a></li>
-          <li><b>탑승장</b>신동면 김유정로 1383 (김유정역)</li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="spot spot-photo spot-flip">
-      <figure>
-        <img src="images/samaksan.jpg" width="1280" height="960" loading="lazy" alt="소나무가 자라는 삼악산의 바위 봉우리">
-        <figcaption>삼악산 정상부 (2023년 12월)</figcaption>
-      </figure>
-      <div class="spot-text">
-        <h3>등선폭포와 삼악산</h3>
-        <p>강촌유원지에서 동쪽으로 2km쯤 가면 등선폭포가 있습니다. 주변의 승학폭포, 백련폭포, 비룡폭포 등과 함께 ‘등선 8경’을 이루고, 이쪽에서 삼악산으로 오르는 길이 이어집니다.</p>
-        <p>삼악산은 용화봉(654m), 등선봉(632m), 청운봉(546m) 세 봉우리가 있어 붙은 이름이고, 1973년 강원도 기념물로 지정됐습니다.</p>
-        <ul class="meta">
-          <li><b>등선폭포</b>서면 덕두원리 118-2 · 입장료 2,000원 (입장하면 춘천사랑상품권 2,000원 제공, 춘천시민·경로·장애인·국가유공자 등 면제) · <a href="tel:0332622215">033-262-2215</a></li>
-        </ul>
-      </div>
-    </article>
-
-    <article class="spot">
-      <div class="spot-text">
-        <h3>엘리시안 강촌</h3>
-        <p>북한강변길에 있는 리조트로 스키장과 골프장(강촌 컨트리클럽), 콘도, 수영장, 캠핑장이 있습니다. 서울에서 가까운 스키장으로 알려져 있고, 지난 2025~26 시즌에는 12월 6일에 슬로프를 열었습니다. 올겨울 개장일은 리조트 공지를 확인하세요.</p>
-        <ul class="meta">
-          <li><b>엘리시안 강촌</b>남산면 북한강변길 688 · 가까운 역 백양리역 · <a href="tel:0332602000">033-260-2000</a> · <a href="https://www.elysian.co.kr/" target="_blank" rel="noopener">elysian.co.kr</a></li>
-        </ul>
-      </div>
-    </article>
-
-    <p class="checked">요금과 시간은 2026년 11월 27일에 확인했습니다. 바뀔 수 있으니 가기 전에 한 번 더 확인하세요.</p>
-  </div>
-</section>
-
-<section id="map" class="map-section">
-  <div class="wrap">
-    <h2>지도</h2>
-    <div id="leaflet" class="map" role="region" aria-label="강촌 지도"></div>
-    <p class="map-hint">붉은 점선은 레일바이크가 달리는 옛 경춘선 철길입니다. 지도를 누르면 확대·이동할 수 있습니다.</p>
-  </div>
-</section>
-
-<section id="route" class="route">
-  <div class="wrap route-grid">
-    <div>
-      <h2>오는 길</h2>
-      <dl class="plain">
-        <dt>기차</dt><dd>수도권 전철 경춘선을 타고 강촌역에서 내립니다.</dd>
-        <dt>자동차</dt><dd>서울양양고속도로 강촌IC로 나옵니다.</dd>
-        <dt>강촌역에서</dt><dd>옛 강촌역 일대까지는 600m쯤, 구곡폭포까지는 걸어서 1시간쯤 걸립니다.</dd>
-        <dt>레일바이크</dt><dd>춘천 방향으로 한 정거장 더 가서 김유정역에서 탑니다.</dd>
-        <dt>엘리시안 강촌</dt><dd>경춘선 백양리역이 가깝습니다.</dd>
-      </dl>
+  <!-- 가볼 곳 -->
+  <article class="page" id="page-places" data-page="places" data-title="가볼 곳" data-parent="intro">
+    <div class="doc no-cover">
+      <h1 tabindex="-1">가볼 곳</h1>
+      <p>강촌과 그 가까이에서 가볼 만한 곳입니다. 이름을 누르면 해당 페이지로 이동합니다.</p>
+      <ul class="links">
+        <li><a href="#gugok"><svg><use href="#i-doc"/></svg><span>구곡폭포와 문배마을</span></a><em>높이 약 50m의 폭포와 산 위 분지 마을</em></li>
+        <li><a href="#oldstation"><svg><use href="#i-doc"/></svg><span>옛 강촌역 일대</span></a><em>강촌유원지, 출렁다리, 노래비, 물깨말 정원</em></li>
+        <li><a href="#railpark"><svg><use href="#i-doc"/></svg><span>강촌레일파크</span></a><em>옛 경춘선 철길을 달리는 레일바이크</em></li>
+        <li><a href="#deungseon"><svg><use href="#i-doc"/></svg><span>등선폭포와 삼악산</span></a><em>등선 8경과 세 봉우리의 산</em></li>
+        <li><a href="#elysian"><svg><use href="#i-doc"/></svg><span>엘리시안 강촌</span></a><em>스키장과 골프장이 있는 리조트</em></li>
+      </ul>
     </div>
-    <figure>
-      <img src="images/gangchon-station.jpg" width="1280" height="960" loading="lazy" alt="둥근 유리 외벽에 강촌역 간판이 달린 역 건물과 넓은 광장">
-      <figcaption>지금의 강촌역 (2023년 12월)</figcaption>
-    </figure>
-  </div>
-</section>
+  </article>
 
-<section id="story" class="story">
-  <div class="wrap story-grid">
-    <div>
-      <h2>지나온 길</h2>
+  <!-- 여행 정보 -->
+  <article class="page" id="page-info" data-page="info" data-title="여행 정보" data-parent="intro">
+    <div class="doc no-cover">
+      <h1 tabindex="-1">여행 정보</h1>
+      <p>강촌에 오는 방법과 위치, 강촌이 걸어온 길입니다.</p>
+      <ul class="links">
+        <li><a href="#map"><svg><use href="#i-map"/></svg><span>지도</span></a><em>가볼 곳과 역 위치, 레일바이크 철길</em></li>
+        <li><a href="#route"><svg><use href="#i-sign"/></svg><span>오는 길</span></a><em>기차, 자동차, 역에서 가는 법</em></li>
+        <li><a href="#story"><svg><use href="#i-clock"/></svg><span>지나온 길</span></a><em>1939년부터 지금까지</em></li>
+      </ul>
+    </div>
+  </article>
+
+  <!-- 구곡폭포와 문배마을 -->
+  <article class="page" id="page-gugok" data-page="gugok" data-title="구곡폭포와 문배마을" data-parent="places">
+    <div class="doc no-cover">
+      <h1 tabindex="-1">구곡폭포와 문배마을</h1>
+
+      <h2>구곡폭포</h2>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-pin"/></svg>주소</span><span class="v">춘천시 남산면 강촌구곡길 254</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-ticket"/></svg>입장료</span><span class="v">2,000원 (65세 이상, 6세 이하, 장애인, 국가유공자, 기초생활수급자 등 면제)</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-park"/></svg>주차</span><span class="v">약 200대</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-walk"/></svg>가는 길</span><span class="v">강촌역에서 걸어서 약 1시간</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-phone"/></svg>문의</span><span class="v"><a href="tel:0332610088">033-261-0088</a></span></div>
+      </div>
+      <p>봉화산 기슭의 구곡폭포는 높이 약 50m로, 아홉 굽이를 돌아 떨어진다고 해서 이런 이름이 붙었습니다. 구구리폭포라고도 부릅니다.</p>
+      <p>큰비가 내린 뒤에 물줄기가 가장 웅장하고, 가을에는 폭포 주변에 단풍이 듭니다. 겨울에는 폭포가 얼어붙어 빙벽을 타는 사람들이 찾아옵니다.</p>
+
+      <h2>문배마을</h2>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-pin"/></svg>주소</span><span class="v">춘천시 남산면 강촌문배길</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-walk"/></svg>가는 길</span><span class="v">구곡폭포 입구에서 능선길로 걸어서 40분 안팎</span></div>
+      </div>
+      <p>구곡폭포 입구에서 능선길로 40분쯤 오르면 산 위 분지에 자리한 문배마을이 나옵니다. 옛 화전민 마을로, 생김새가 짐을 가득 실은 배를 닮아 문배마을이라 불렸다고 합니다.</p>
+      <p>마을 식당에서는 산채비빔밥과 토종닭 요리를 팝니다.</p>
+
+      <div class="callout"><svg><use href="#i-cal"/></svg><p>요금과 시간은 2026년 11월 27일에 확인했습니다. 가기 전에 한 번 더 확인하세요.</p></div>
+    </div>
+  </article>
+
+  <!-- 옛 강촌역 일대 -->
+  <article class="page" id="page-oldstation" data-page="oldstation" data-title="옛 강촌역 일대" data-parent="places">
+    <div class="doc no-cover">
+      <h1 tabindex="-1">옛 강촌역 일대</h1>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-pin"/></svg>주소</span><span class="v">춘천시 남산면 강촌로 34 (강촌유원지)</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-ticket"/></svg>입장료</span><span class="v">없음</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-walk"/></svg>가는 길</span><span class="v">지금의 강촌역에서 600m쯤</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-phone"/></svg>문의</span><span class="v"><a href="tel:0332624464">033-262-4464</a></span></div>
+      </div>
+      <figure class="img">
+        <img src="images/old-station-1984.jpg" width="1280" height="1591" loading="lazy" alt="1984년, 바위산 아래 북한강 변 옛 강촌역 앞을 지나는 비둘기호 열차와 강 위의 다리">
+        <figcaption>1984년 6월, 옛 강촌역 앞을 지나는 비둘기호 열차</figcaption>
+      </figure>
+      <p>2010년까지 기차가 서던 옛 강촌역 앞은 강촌유원지입니다. 북한강을 따라 산책로가 길게 이어집니다.</p>
+
+      <h2>출렁다리</h2>
+      <p>1972년에 처음 놓인 출렁다리(길이 277m)는 1981년 새 강촌교가 생기고 안전 문제가 불거지면서 1985년에 철거됐습니다. 지금의 다리는 2016년 9월 강촌천 위에 길이 58m로 다시 놓은 것입니다.</p>
+
+      <h2>노래비</h2>
+      <p>‘강촌에 살고 싶네’ 노래비는 2005년에 세워졌고, 버튼을 누르면 노래가 흘러나옵니다.</p>
+
+      <h2>물깨말 정원</h2>
+      <p>2026년 8월 출렁다리 옆에 문을 연 약 2,000㎡ 정원입니다. 기찻길 산책로와 암석원이 있습니다.</p>
+
+      <h2>북한강 물새길</h2>
+      <p>춘천 봄내길 5코스입니다. 옛 강촌역에서 백양리역까지 2.1km, 한 시간쯤 걷는 쉬운 길입니다.</p>
+    </div>
+  </article>
+
+  <!-- 강촌레일파크 -->
+  <article class="page" id="page-railpark" data-page="railpark" data-title="강촌레일파크" data-parent="places">
+    <div class="cover"><img src="images/railpark-train.jpg" width="1280" height="854" loading="lazy" alt="GANGCHON RAIL PARK라고 적힌 빨간 낭만열차에 사람들이 타는 모습" style="object-position:50% 45%"></div>
+    <div class="doc">
+      <h1 tabindex="-1">강촌레일파크</h1>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-pin"/></svg>탑승장</span><span class="v">춘천시 신동면 김유정로 1383 (김유정역)</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-clock"/></svg>출발</span><span class="v">09:00 · 10:00 · 11:00 · 12:00 · 13:30 · 14:30 · 15:30 · 16:30 · 17:30<br>5~10월 주말과 공휴일은 18:30 추가</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-ticket"/></svg>요금</span><span class="v">2인승 40,000원, 4인승 56,000원</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-phone"/></svg>문의</span><span class="v"><a href="tel:0332451000">033-245-1000</a></span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-link"/></svg>누리집</span><span class="v"><a href="https://www.railpark.co.kr/" target="_blank" rel="noopener">railpark.co.kr</a></span></div>
+      </div>
+      <p>옛 경춘선 철길 위를 페달을 밟아 달립니다. 김유정역 탑승장에서 출발해 중간휴게소까지 6km는 레일바이크로, 남은 2.5km는 낭만열차를 타고 옛 강촌역까지 내려옵니다.</p>
+      <p>편도라서 김유정역까지는 무료 셔틀버스로 돌아갑니다. 2012년 8월에 운행을 시작했습니다.</p>
+      <div class="callout"><svg><use href="#i-cal"/></svg><p>누리집에서 미리 예약해야 합니다. 당일 예약은 안 되고, 현장 구매는 선착순입니다.</p></div>
+      <p class="caption-note">맨 위 사진: 레일바이크 끝 구간을 잇는 낭만열차 (2025년 11월)</p>
+    </div>
+  </article>
+
+  <!-- 등선폭포와 삼악산 -->
+  <article class="page" id="page-deungseon" data-page="deungseon" data-title="등선폭포와 삼악산" data-parent="places">
+    <div class="cover"><img src="images/samaksan.jpg" width="1280" height="960" loading="lazy" alt="소나무가 자라는 삼악산의 바위 봉우리" style="object-position:50% 30%"></div>
+    <div class="doc">
+      <h1 tabindex="-1">등선폭포와 삼악산</h1>
+
+      <h2>등선폭포</h2>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-pin"/></svg>주소</span><span class="v">춘천시 서면 덕두원리 118-2</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-ticket"/></svg>입장료</span><span class="v">2,000원, 입장하면 춘천사랑상품권 2,000원 제공 (춘천시민, 경로, 장애인, 국가유공자 등 면제)</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-phone"/></svg>문의</span><span class="v"><a href="tel:0332622215">033-262-2215</a></span></div>
+      </div>
+      <p>강촌유원지에서 동쪽으로 2km쯤 가면 등선폭포가 있습니다. 주변의 승학폭포, 백련폭포, 비룡폭포 등과 함께 ‘등선 8경’을 이루고, 이쪽에서 삼악산으로 오르는 길이 이어집니다.</p>
+
+      <h2>삼악산</h2>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-mount"/></svg>높이</span><span class="v">654m (용화봉)</span></div>
+      </div>
+      <p>삼악산은 용화봉(654m), 등선봉(632m), 청운봉(546m) 세 봉우리가 있어 붙은 이름이고, 1973년 강원도 기념물로 지정됐습니다.</p>
+      <p class="caption-note">맨 위 사진: 삼악산 정상부 (2023년 12월)</p>
+    </div>
+  </article>
+
+  <!-- 엘리시안 강촌 -->
+  <article class="page" id="page-elysian" data-page="elysian" data-title="엘리시안 강촌" data-parent="places">
+    <div class="doc no-cover">
+      <h1 tabindex="-1">엘리시안 강촌</h1>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-pin"/></svg>주소</span><span class="v">춘천시 남산면 북한강변길 688</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-train"/></svg>가까운 역</span><span class="v">경춘선 백양리역</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-phone"/></svg>문의</span><span class="v"><a href="tel:0332602000">033-260-2000</a></span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-link"/></svg>누리집</span><span class="v"><a href="https://www.elysian.co.kr/" target="_blank" rel="noopener">elysian.co.kr</a></span></div>
+      </div>
+      <p>북한강변길에 있는 리조트로 스키장과 골프장(강촌 컨트리클럽), 콘도, 수영장, 캠핑장이 있습니다. 서울에서 가까운 스키장으로 알려져 있습니다.</p>
+      <p>지난 2025~26 시즌에는 2025년 12월 6일에 스키장을 열었습니다.</p>
+      <div class="callout"><svg><use href="#i-cal"/></svg><p>2026~27 시즌 개장일은 리조트 공지에서 확인하세요.</p></div>
+    </div>
+  </article>
+
+  <!-- 지도 -->
+  <article class="page" id="page-map" data-page="map" data-title="지도" data-parent="info">
+    <div class="doc wide no-cover">
+      <h1 tabindex="-1">지도</h1>
+      <p>가볼 곳과 역의 위치입니다. 붉은 점선은 레일바이크가 달리는 옛 경춘선 철길입니다. 점을 누르면 주소가 나옵니다.</p>
+      <div id="leaflet" class="map" role="region" aria-label="강촌 지도"></div>
+    </div>
+  </article>
+
+  <!-- 오는 길 -->
+  <article class="page" id="page-route" data-page="route" data-title="오는 길" data-parent="info">
+    <div class="cover"><img src="images/gangchon-station.jpg" width="1280" height="960" loading="lazy" alt="둥근 유리 외벽에 강촌역 간판이 달린 역 건물과 넓은 광장" style="object-position:50% 40%"></div>
+    <div class="doc">
+      <h1 tabindex="-1">오는 길</h1>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-train"/></svg>기차</span><span class="v">수도권 전철 경춘선을 타고 강촌역에서 내립니다.</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-car"/></svg>자동차</span><span class="v">서울양양고속도로 강촌IC로 나옵니다.</span></div>
+      </div>
+
+      <h2>강촌역에서</h2>
+      <div class="props">
+        <div class="prop"><span class="k"><svg><use href="#i-doc"/></svg>옛 강촌역 일대</span><span class="v">600m쯤</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-doc"/></svg>구곡폭포</span><span class="v">걸어서 약 1시간</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-doc"/></svg>레일바이크</span><span class="v">춘천 방향으로 한 정거장 더 가서 김유정역에서 탑니다.</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-doc"/></svg>엘리시안 강촌</span><span class="v">경춘선 백양리역이 가깝습니다.</span></div>
+        <div class="prop"><span class="k"><svg><use href="#i-walk"/></svg>걷기</span><span class="v">북한강 물새길(봄내길 5코스)로 옛 강촌역에서 백양리역까지 2.1km</span></div>
+      </div>
+      <p class="caption-note">맨 위 사진: 지금의 강촌역 (2023년 12월)</p>
+    </div>
+  </article>
+
+  <!-- 지나온 길 -->
+  <article class="page" id="page-story" data-page="story" data-title="지나온 길" data-parent="info">
+    <div class="doc no-cover">
+      <h1 tabindex="-1">지나온 길</h1>
       <ol class="years">
-        <li><b>1939</b>경춘선 강촌역이 강촌리에서 영업을 시작합니다.</li>
-        <li><b>1969</b>노래 ‘강촌에 살고 싶네’가 나옵니다.</li>
-        <li><b>1972</b>길이 277m의 옛 출렁다리가 놓입니다.</li>
-        <li><b>1970~80년대</b>강촌유원지 일대가 대학생 MT 명소로 이름을 알립니다.</li>
-        <li><b>1985</b>새 강촌교가 생긴 뒤 안전 문제로 옛 출렁다리를 철거합니다.</li>
-        <li><b>2005</b>‘강촌에 살고 싶네’ 노래비가 세워집니다.</li>
-        <li><b>2010</b>경춘선 복선전철이 개통하고 강촌역이 방곡리로 옮겨 갑니다. 역이 강가를 떠나고 젊은 여행객이 레포츠 시설 등으로 발길을 돌리면서 유원지 상권은 크게 줄어듭니다.</li>
-        <li><b>2012</b>옛 철길에서 레일바이크 운행이 시작됩니다.</li>
-        <li><b>2016</b>강촌천 위에 출렁다리가 다시 놓입니다.</li>
-        <li><b>2026</b>출렁다리 옆에 물깨말 정원이 문을 엽니다.</li>
+        <li><b>1939</b><span>경춘선 강촌역이 강촌리에서 영업을 시작합니다.</span></li>
+        <li><b>1969</b><span>노래 ‘강촌에 살고 싶네’가 나옵니다.</span></li>
+        <li><b>1972</b><span>길이 277m의 옛 출렁다리가 놓입니다.</span></li>
+        <li><b>1970~80년대</b><span>강촌유원지 일대가 대학생 MT 명소로 이름을 알립니다.</span></li>
+        <li><b>1985</b><span>새 강촌교가 생긴 뒤 안전 문제로 옛 출렁다리를 철거합니다.</span></li>
+        <li><b>2005</b><span>‘강촌에 살고 싶네’ 노래비가 세워집니다.</span></li>
+        <li><b>2010</b><span>경춘선 복선전철이 개통하고 강촌역이 방곡리로 옮겨 갑니다. 역이 강가를 떠나고 젊은 여행객이 레포츠 시설 등으로 발길을 돌리면서 유원지 상권은 크게 줄어듭니다.</span></li>
+        <li><b>2012</b><span>옛 철길에서 레일바이크 운행이 시작됩니다.</span></li>
+        <li><b>2016</b><span>강촌천 위에 출렁다리가 다시 놓입니다.</span></li>
+        <li><b>2026</b><span>출렁다리 옆에 물깨말 정원이 문을 엽니다.</span></li>
       </ol>
     </div>
-    <figure>
-      <img src="images/gangchon-winter-2008.jpg" width="1280" height="960" loading="lazy" alt="눈 덮인 강변과 산 사이로 지나가는 붉은 철교">
-      <figcaption>2008년 12월, 눈 내린 강촌</figcaption>
-    </figure>
+  </article>
+
+  </main>
+
+  <footer class="foot">
+    <p class="made">제작: <a href="https://eunyool10.github.io/link-collection/" data-leave>은율</a></p>
+  </footer>
+</div>
+
+</div>
+
+<!-- 외부 이동 확인 -->
+<dialog id="leave" class="ask" aria-labelledby="leave-title">
+  <h2 id="leave-title" tabindex="-1">외부 사이트로 이동할까요?</h2>
+  <p class="ask-url" id="leave-url"></p>
+  <div class="ask-btns">
+    <button type="button" class="btn-plain" data-leave-cancel>취소</button>
+    <button type="button" class="btn-main" data-leave-go><svg><use href="#i-out"/></svg>이동</button>
   </div>
-</section>
+</dialog>
 
-</main>
-
-<footer class="foot">
-  <div class="wrap foot-in">
-    <p>강촌 홍보 페이지 · 춘천시 공식 누리집이 아닙니다 · 정보 확인 2026. 11. 27.</p>
-    <button type="button" class="link-btn" data-open-credits>출처와 사용한 자료</button>
-  </div>
-</footer>
-
+<!-- 출처 -->
 <dialog id="credits" class="credits" aria-labelledby="credits-title">
   <div class="credits-head">
-    <h2 id="credits-title" tabindex="-1" autofocus>출처와 사용한 자료</h2>
-    <button type="button" class="close" data-close-credits aria-label="닫기">
-      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-    </button>
+    <h2 id="credits-title" tabindex="-1">출처와 사용한 자료</h2>
+    <button type="button" class="icon-btn" data-close-credits aria-label="닫기"><svg><use href="#i-close"/></svg></button>
   </div>
   <div class="credits-body">
-    <p class="credits-lead">이 페이지의 내용은 아래 자료에서 확인한 사실만 담았습니다. 정보 확인일은 2026년 11월 27일입니다.</p>
+    <p class="credits-lead">이 페이지의 내용은 아래 자료에서 확인한 사실만 담았습니다. 정보 확인일은 2026년 11월 27일이며, 춘천시 공식 누리집이 아닙니다.</p>
 
     <h3>내용 출처</h3>
     <dl class="cite">
@@ -227,7 +366,8 @@
         <a href="https://www.chuncheon.go.kr/tour/destination/all-tour/detail/?tourId=207" target="_blank" rel="noopener">춘천시 관광 포털 ‘봄내길 5코스’</a>,
         <a href="https://bomnae.chuncheon.go.kr/contentView?contentNo=365&amp;no=328" target="_blank" rel="noopener">봄내 328호</a>,
         <a href="https://bomnae.chuncheon.go.kr/contentView?contentNo=921&amp;no=354" target="_blank" rel="noopener">봄내 354호</a>,
-        <a href="https://www.khan.co.kr/article/202608061149001" target="_blank" rel="noopener">경향신문 2026.8.6</a>
+        <a href="https://www.khan.co.kr/article/202608061149001" target="_blank" rel="noopener">경향신문 2026.8.6</a>,
+        <a href="https://ko.wikipedia.org/wiki/%EA%B0%95%EC%B4%8C%EC%97%AD" target="_blank" rel="noopener">위키백과 ‘강촌역’</a>
       </dd>
       <dt>강촌레일파크</dt>
       <dd>
@@ -239,6 +379,7 @@
       <dt>등선폭포와 삼악산</dt>
       <dd>
         <a href="https://www.ktriptips.com/kor/tourspot/125655" target="_blank" rel="noopener">한국관광공사 관광정보 ‘등선폭포(삼악산)’</a>,
+        <a href="https://www.chuncheon.go.kr/tour/destination/all-tour/detail/?tourId=182" target="_blank" rel="noopener">춘천시 관광 포털 ‘강촌유원지’</a>,
         <a href="https://ko.wikipedia.org/wiki/%EC%82%BC%EC%95%85%EC%82%B0_(%EA%B0%95%EC%9B%90)" target="_blank" rel="noopener">위키백과 ‘삼악산 (강원)’</a>
       </dd>
       <dt>엘리시안 강촌</dt>
@@ -254,11 +395,11 @@
     <table class="photo-table">
       <thead><tr><th scope="col">사진</th><th scope="col">촬영</th><th scope="col">라이선스</th></tr></thead>
       <tbody>
+        <tr><td><a href="https://commons.wikimedia.org/wiki/File:Gangchon,_South_Korea_(3150017175).jpg" target="_blank" rel="noopener">눈 내린 강촌 (2008)</a></td><td>yeowatzup</td><td><a href="https://creativecommons.org/licenses/by/2.0/deed.ko" target="_blank" rel="noopener">CC BY 2.0</a></td></tr>
         <tr><td><a href="https://commons.wikimedia.org/wiki/File:Front_of_the_Gangchon_Station_with_Bidulgi_Train_1984.jpg" target="_blank" rel="noopener">옛 강촌역과 비둘기호 (1984)</a></td><td>Konarail</td><td><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" target="_blank" rel="noopener">CC BY-SA 4.0</a></td></tr>
         <tr><td><a href="https://commons.wikimedia.org/wiki/File:Gangchon_Rail_Park_train_-_54971861637.jpg" target="_blank" rel="noopener">강촌레일파크 낭만열차 (2025)</a></td><td>Gage Skidmore</td><td><a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ko" target="_blank" rel="noopener">CC BY-SA 4.0</a></td></tr>
         <tr><td><a href="https://commons.wikimedia.org/wiki/File:%EC%82%BC%EC%95%85%EC%82%B0_%EC%A0%95%EC%83%81_3.jpg" target="_blank" rel="noopener">삼악산 정상부 (2023)</a></td><td>Sadopaul</td><td><a href="https://creativecommons.org/licenses/by/4.0/deed.ko" target="_blank" rel="noopener">CC BY 4.0</a></td></tr>
         <tr><td><a href="https://commons.wikimedia.org/wiki/File:Gangchon_Station-front_3.jpg" target="_blank" rel="noopener">강촌역 (2023)</a></td><td>Twotwo2019</td><td><a href="https://creativecommons.org/licenses/by-sa/3.0/deed.ko" target="_blank" rel="noopener">CC BY-SA 3.0</a></td></tr>
-        <tr><td><a href="https://commons.wikimedia.org/wiki/File:Gangchon,_South_Korea_(3150017175).jpg" target="_blank" rel="noopener">눈 내린 강촌 (2008)</a></td><td>yeowatzup</td><td><a href="https://creativecommons.org/licenses/by/2.0/deed.ko" target="_blank" rel="noopener">CC BY 2.0</a></td></tr>
       </tbody>
     </table>
 
@@ -277,6 +418,6 @@
 </dialog>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="main.js?v=3"></script>
+<script src="main.js?v=5"></script>
 </body>
 </html>
